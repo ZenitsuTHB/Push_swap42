@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/16 22:27:56 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/19 18:25:55 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_fill_stack(char **argv)
 int	main(int argc, char **argv )
 {
 
-	ft_check_input(argc, argv);
+	ft_input(argc, argv);
 	ft_fill_stack(argv);
 	return (0);
 }
