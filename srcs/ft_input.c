@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:11:25 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/19 18:31:54 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/23 22:01:07 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,11 @@ void	check_duplicated(int ac, char **dup)
 {
 	int		i;
 	int		j;
-//	char	*s;
 
-	(void)ac;
-//	printf("|%s|\n", dup[0]);
-//	printf("|%s|\n", dup[1]);
-	i = 1;
+	if (ac == 2)
+		i = 0;
+	else
+		i = 1;
 	while (dup[i])
 	{
 		j = 1;
@@ -56,7 +55,7 @@ void	check_duplicated(int ac, char **dup)
 			if(i != j && ft_atol(dup[i]) == ft_atol(dup[j]))
 			{
 				ft_putstr_fd(DUP_MSG, 2);
-				exit(0);
+				ft_error();
 			}
 			++j;
 		}
@@ -64,70 +63,68 @@ void	check_duplicated(int ac, char **dup)
 	}
 }
 
-void	check_intsize(char *s)
+void    check_input(int ac, char **av, int i)
 {
+	char	*s;
 	long	num;
+	size_t	j;
 
-	num = ft_atol(s);
-	if (num <= INT_MIN || num >= INT_MAX)
+	printf("ac -> %d\n", ac);
+	while (av[i])
 	{
-	 	ft_putstr_fd(INT_PROB, 2);
-		exit(0);
+		j = 0;
+		s = av[i];
+		if (ft_strlen(av[i]) == 0)
+			ft_error();
+//		printf("for		av[%d], string is --> |%s|\n",i, s);
+		if ((s[j] == '-' || s[j] == '+') && s[j + 1])
+			j++;
+		//to fix EMPTY string at the end of real argument.
+		while (j < ft_strlen(s))
+		{
+			//printf("for av[%d][%zu] = s[%zu],   char is --> |%c|\n",i,j,j, s[j]);
+			if (/*(s[j] < '0' ||  s[j] > '9') && */!ft_isdigit(s[j]))
+			{
+	 			ft_putstr_fd(CHAR_MSG, 2);
+				ft_error();
+			}
+			j++;
+		}
+		num = ft_atol(av[i]);
+//		printf("for		num %d, long is --> %ld\n", i, num);
+		if (num < INT_MIN || num > INT_MAX)
+		{
+	 		ft_putstr_fd(INT_PROB, 2);
+			ft_error();
+		}
+		i++;
 	}
-}
-void    check_input(int ac, char **av)
-{
-    size_t      i;
-    int     j;
-    char    *s;
 
-    if (ac == 1 || ((ac == 2 && av[1][0]) == '\0' && ft_strlen(av[1]) == 0))
-    {
-        ft_putstr_fd(ARG_MSG, 2);
-        exit(0);
-    }
-    else
-    {
-        check_duplicated(ac, av);
-        i =  1;
-        while (av[i])
-        {
-            //printf("len of av[%zu] -> %zu\n", i, ft_strlen(av[i]));
-            j =  0;
-            s = av[i];
-            check_intsize(s);
-            while(s[j])
-            {
-                if (s[0] == '+' || s[0] == '-')
-                    j++;
-                if(!ft_isdigit(s[j]))// && s[j] != '-' && s[j] != '+')
-                {
-                    if (s[j] == '-' || s[j] == '+')
-                    {
-                        ft_putstr_fd(SIGN_MSG, 2);
-                        exit(0);
-                    }
-                    ft_putstr_fd(CHAR_MSG, 2);
-                    exit(0);
-                }
-                j++;
-            }
-            i++;
-        }
-    }
 }
-
-void	ft_input(int ac, char **av)
+/*-------------------------/
+/	check if num es digit
+/	check duplicated
+/	check intsize
+/	ckeck argv 
+-------------------------*/
+/*dos casos 
+ * if ac = 2 and letter behind number
+ * if  */
+void	ft_input_arg(int ac, char **av)
 {
-    int i = 0;
-    if (ac == 2 && av[1][0] != '\0' && ft_strlen(av[1]) != 0 && av[1][0] != ' ')
-    {
-        av = ft_split(av[1], ' ');
-        while(av[i])
-        {
-            printf("colunm -> %d is |%s|\n", i, av[i]);
-            i++;
-        }
-    }
-    check_input(ac, av);
+	char **avsp;
+
+	if (ac >= 3)
+	{
+		check_input(ac, av, 1);
+		check_duplicated(ac, av);
+	}
+	else if (ac == 2 && ft_strlen(av[1]) > 1)
+	{
+		avsp = ft_split(av[1], ' ');
+		check_input(ac, avsp, 0);
+		check_duplicated(ac, avsp);
+	}
+	else
+		ft_error();
 }

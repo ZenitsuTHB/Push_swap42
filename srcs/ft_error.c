@@ -6,11 +6,11 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 22:46:23 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/06 17:03:15 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/23 13:46:22 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../inc/push_swap.h"
 
 void	ft_error(void)
 {

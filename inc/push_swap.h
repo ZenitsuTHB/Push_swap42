@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/19 18:27:26 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/23 22:10:23 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@
 typedef struct	node 
 {
 	int			num;
+	struct node	*prev;
 	struct node	*next;
-}c_node;
+}t_node;
 
 //typedef struct s_stack
 //{ 
@@ -43,6 +44,6 @@ typedef struct	node
 //	struct s_list	*next;
 //}t_list;
 
-//void	ft_error(void);
-void	ft_input(int argc, char **argv);
+void	ft_error(void);
+void	ft_input_arg(int argc, char **argv);
 #endif
