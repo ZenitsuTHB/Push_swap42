@@ -6,15 +6,17 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 21:16:09 by avolcy            #+#    #+#              #
-#    Updated: 2023/09/07 18:45:30 by avolcy           ###   ########.fr        #
+#    Updated: 2023/10/26 14:43:54 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #variable que contiene el nombre de la biblio estatica
 NAME = libft.a
 CC = cc #var. con opcion de compilacion
+RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror #opciones de compilacion adicionales
 HEADER = libft.h
+BUILT_LIB = ar rcs
 #variable que contiene la lista de archivos fuente que se deben compilar
 SRC = ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 	  ft_tolower.c ft_toupper.c ft_memcmp.c ft_memmove.c ft_memcpy.c \
@@ -35,26 +37,32 @@ OBJ = $(SRC:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 
 all : $(NAME)
-
+#------------------------------------------------------------------------------
+#___$@ means the target which is in that case below $(NAME)___ \
+___$< means the 1s dependency of a rule refer to the 1s item of the list of \
+prerequisites or dependencies, below it represents $(OBJ) in %.o...= $(HEADER)\
+---$^ is an automatic variable that means all the dependencies of a \
+target in a rule it can means all the objects files if were used below🙂
+#------------------------------------------------------------------------------
 $(NAME) : $(OBJ) $(HEADER)
-	ar rcs $(NAME) $(OBJ)
+	$(BUILT_LIB) $@ $^
 
 bonus : .bonus
 
 .bonus : $(OBJ_B) $(HEADER)
-	ar rcs $(NAME) $(OBJ_B)
+	$(BUILT_LIB) $@ $^
 	@touch .bonus
 
 %.o: %.c $(HEADER) 
-	$(CC) $(CFLAGS) -c $< 
+	$(CC) $(CFLAGS) -c $^ 
 
 .PHONY : clean fclean re all
 
 clean :
-	@rm -rf $(OBJ) $(OBJ_B)
+	@$(RM) $(OBJ) $(OBJ_B)
 
 fclean : clean
-	@rm -rf $(NAME) .bonus
+	@$(RM) $(NAME) .bonus
 
 re : fclean all
 

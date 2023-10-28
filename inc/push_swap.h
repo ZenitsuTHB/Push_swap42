@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/23 22:10:23 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/27 18:59:44 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ typedef struct	node
 //	void			*content;
 //	struct s_list	*next;
 //}t_list;
-
+void    ft_clearnodes(t_node **stack);
+void	sa(t_node *stack_a);
+void	sb(t_node *stack_b);
+void	ss(t_node *stack_a, t_node *stack_b);
 void	ft_error(void);
 void	ft_input_arg(int argc, char **argv);
 #endif

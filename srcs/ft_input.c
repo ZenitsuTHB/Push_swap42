@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:11:25 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/23 22:01:07 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/26 15:55:38 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	check_duplicated(int ac, char **dup)
 	}
 }
 
-void    check_input(int ac, char **av, int i)
+void    check_input(char **av, int i)
 {
 	char	*s;
 	long	num;
 	size_t	j;
 
-	printf("ac -> %d\n", ac);
+	//printf("ac -> %d\n", ac);
 	while (av[i])
 	{
 		j = 0;
@@ -116,13 +116,13 @@ void	ft_input_arg(int ac, char **av)
 
 	if (ac >= 3)
 	{
-		check_input(ac, av, 1);
+		check_input(av, 1);
 		check_duplicated(ac, av);
 	}
 	else if (ac == 2 && ft_strlen(av[1]) > 1)
 	{
 		avsp = ft_split(av[1], ' ');
-		check_input(ac, avsp, 0);
+		check_input(avsp, 0);
 		check_duplicated(ac, avsp);
 	}
 	else

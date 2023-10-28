@@ -6,47 +6,69 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/23 22:05:31 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/27 20:13:07 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/*===================CLEAN_UP=================================*/
+void	ft_clearnodes(t_node **stack)
+{
+	t_node	*ptr;
+
+	while(*stack != NULL)
+	{
+		ptr = *stack;
+		*stack = ptr->next;
+		free(ptr);
+	}
+}
+/*-------------------------------------------------------------*/
+
+void	ft_clear_arg(char ***avsp, int i)
+{
+	while (avsp[i])
+		free(avsp[i]);
+	free(avsp);
+}
+
+/*==================FILL_STACK_CREATE_NODES====================*/
 t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 {
 	int		i;
 	t_node	*aux;
+	char	**avsp;
 
+	i = 1;
 	if (argc == 2)
 	{
 		i = 0;
-		argv = ft_split(argv[1], ' ');
+		avsp = ft_split(argv[1], ' ');
+		argv = avsp;
 	}
-	else
-		i = 1;
-	stack = malloc(sizeof(t_node));
+//	ft_clear_arg(&avsp, 0);
+	stack = (t_node *)malloc(sizeof(t_node));
 	if (!stack)
-		return (NULL);
+		ft_clearnodes(&stack);
 	aux = stack;
 	while (argv[i])
 	{
-	//	printf("argv[%d] -> %s\n", i, argv[i]);
 		stack->num = ft_atoi(argv[i]);
-		//stack->prev =;
-		stack->next = malloc(sizeof(t_node));
-		// El ultimo caso no se guardara bien!!!!! s[i + 1] .....
+		printf("this is the node [%d] --> %d\n", i, stack->num);
+		stack->next = (t_node*)malloc(sizeof(t_node));
+		// El ultimo caso no se guardara bien!!!!! argv[i + 1] .....
+		stack->next->next = NULL;
 		if (!stack->next)
-			return(NULL); // SI FALLA UN MALLOX TINES QUE LIBERAR LO ANTERIOR
+			ft_clearnodes(&aux);
 		stack = stack->next;
 		i++;
 	}
-	int j = 1;
-	while (stack->next){
-		printf("this is the [%d] node --> %d\n", j, stack->num);
-	}
 	return (aux);
 }
+/*------------------------------------------------------------*/
 
+/*=================PUSH_SWAP_MAIN=============================*/
 int	main(int argc, char **argv)
 {
 	t_node *stack_a;
@@ -54,5 +76,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
+	ft_clearnodes(&stack_a);
 	return (0);
 }
+/*------------------------------------------------------------*/
