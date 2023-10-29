@@ -6,13 +6,13 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:57:19 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/27 20:12:55 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/29 20:36:21 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	push(t_node **stack, int data)
+static	void push(t_node ***stack, int data)
 {
 	t_node	*new;
 
@@ -24,8 +24,8 @@ void	push(t_node **stack, int data)
 	if (new)
 	{
 		new->num = data;
-		new->next = (*stack);
-		*stack = new;
+		new->next = *(*stack);
+		*(*stack) = new;
 	}
 	ft_clearnodes(&new);
 }

@@ -6,32 +6,11 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/27 20:13:07 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/29 21:16:59 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-/*===================CLEAN_UP=================================*/
-void	ft_clearnodes(t_node **stack)
-{
-	t_node	*ptr;
-
-	while(*stack != NULL)
-	{
-		ptr = *stack;
-		*stack = ptr->next;
-		free(ptr);
-	}
-}
-/*-------------------------------------------------------------*/
-
-void	ft_clear_arg(char ***avsp, int i)
-{
-	while (avsp[i])
-		free(avsp[i]);
-	free(avsp);
-}
 
 /*==================FILL_STACK_CREATE_NODES====================*/
 t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
@@ -76,7 +55,14 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
+	if(ft_is_sorted(&stack_a))
+	{
+		printf("is not sorted bro\n");
+	}
+	else
+		printf("is sorted bro\n");
 	ft_clearnodes(&stack_a);
+//	ft_clear_arg(&argv, 0);
 	return (0);
 }
 /*------------------------------------------------------------*/
