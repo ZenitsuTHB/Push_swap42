@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 21:17:39 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/30 17:15:49 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void    rrr(t_node **stack_a, t_node **stack_b);
 //==========================================/
 
 void	ft_error(void);
-int		ft_is_sorted(t_node **stack);
+int		ft_is_sorted(t_node *stack);
 void    ft_clearnodes(t_node **stack);
 void    ft_clear_arg(char ***stack, int i);
  

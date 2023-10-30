@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 21:16:59 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/30 21:07:51 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 {
 	int		i;
-	t_node	*aux;
+	t_node	*head;
 	char	**avsp;
 
 	i = 1;
@@ -24,26 +24,30 @@ t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 	{
 		i = 0;
 		avsp = ft_split(argv[1], ' ');
+		if(!avsp)
+			return NULL;
 		argv = avsp;
 	}
-//	ft_clear_arg(&avsp, 0);
 	stack = (t_node *)malloc(sizeof(t_node));
 	if (!stack)
 		ft_clearnodes(&stack);
-	aux = stack;
+	stack->next = NULL;
+	head = stack;
 	while (argv[i])
 	{
 		stack->num = ft_atoi(argv[i]);
 		printf("this is the node [%d] --> %d\n", i, stack->num);
-		stack->next = (t_node*)malloc(sizeof(t_node));
+		if (argv[i + 1])
+			stack->next = (t_node*)malloc(sizeof(t_node));
 		// El ultimo caso no se guardara bien!!!!! argv[i + 1] .....
-		stack->next->next = NULL;
-		if (!stack->next)
-			ft_clearnodes(&aux);
+		else
+			stack->next = NULL;
 		stack = stack->next;
 		i++;
 	}
-	return (aux);
+	if (argc == 2)
+		ft_clear_arg(&avsp, 0);
+	return (head);
 }
 /*------------------------------------------------------------*/
 
@@ -55,14 +59,21 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
-	if(ft_is_sorted(&stack_a))
+	printf("%d\n", ft_is_sorted(stack_a));
+	//while (stack_a->next != NULL)
+	//{
+	//	printf("%d\n", stack_a->num);
+	//	stack_a = stack_a->next; 
+	//}
+	if(ft_is_sorted(stack_a) == 0)
 	{
-		printf("is not sorted bro\n");
-	}
-	else
 		printf("is sorted bro\n");
+	}
+	else 
+	{
+		printf("is not sorted bro\n"); 
+	}
 	ft_clearnodes(&stack_a);
-//	ft_clear_arg(&argv, 0);
 	return (0);
 }
 /*------------------------------------------------------------*/

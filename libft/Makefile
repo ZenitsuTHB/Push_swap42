@@ -6,7 +6,7 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 21:16:09 by avolcy            #+#    #+#              #
-#    Updated: 2023/10/26 14:43:54 by avolcy           ###   ########.fr        #
+#    Updated: 2023/10/30 16:17:36 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = libft.a
 CC = cc #var. con opcion de compilacion
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror #opciones de compilacion adicionales
+CFLAGS = -Wall -Wextra -Werror -g#opciones de compilacion adicionales
 HEADER = libft.h
 BUILT_LIB = ar rcs
 #variable que contiene la lista de archivos fuente que se deben compilar

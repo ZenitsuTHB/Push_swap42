@@ -6,13 +6,13 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 22:46:23 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 21:17:36 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/30 21:07:47 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//=======| _FT_ERROR_ |===============/
+//======| _FT_ERROR_ |========/
 void	ft_error(void)
 {
 	write(1, "Error\n", 6);
@@ -20,12 +20,15 @@ void	ft_error(void)
 }
 //==========================/
 
-//========| _CLEAN_UP_ARGV_ |===============/
+//=======| _CLEAN_UP_ARGV_ |==============/
 void    ft_clear_arg(char ***avsp, int i)
 {
-    while (avsp[i])
-        free(avsp[i]);
-    free(avsp);
+    while ((*avsp)[i])
+	{
+        free((*avsp)[i]);
+		i++;
+	}
+    free(*avsp);
 }
 //=======================================/
 
@@ -41,18 +44,23 @@ void    ft_clearnodes(t_node **stack)
         free(ptr);
     }
 }
-//===================================/
 
-int	ft_is_sorted(t_node **stack)
+//==========| _IS_SORTED_ |===================/
+int	ft_is_sorted(t_node *stack)
 {
-	t_node *current;
+	int out;
 
-	current = (*stack);
-	while (current->next != NULL)
+	out = 0;
+	printf("tooop\n");
+	while (stack->next && out == 0)
 	{
-		if(current->num < current->next->num)
-			return(0);
-		current = current->next;
+		printf("stack = %d\n", stack->num);
+		if(stack->num > stack->next->num)
+			out = 1;
+		stack = stack->next;
+		printf("out=%d\n", out);
 	}
-	return (1);
+	printf("stack = %d\n", stack->num);
+	return (out);
 }
+//=============================================/

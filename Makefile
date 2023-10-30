@@ -6,7 +6,7 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 12:04:03 by avolcy            #+#    #+#              #
-#    Updated: 2023/10/26 14:44:11 by avolcy           ###   ########.fr        #
+#    Updated: 2023/10/30 18:38:27 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIB = $(LIB_DIR)/libft.a
 
 #============FLAGS===================#
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -c
+CFLAGS = -Wall -Werror -Wextra -g 
 #-----------------------------------#
 
 #============SRCS============#
@@ -38,8 +38,7 @@ EXE_OBJ = $(EXE_SRC:.c=.o)
 #---------------------------#
 
 #===TARGETS===#
-all: $(EXECUT)
-
+all: $(EXECUT) 
 #===============COMPILATIONS======================#
 $(LIB):
 	$(MAKE) -C $(LIB_DIR)
@@ -47,12 +46,12 @@ $(LIB):
 %.o: $(EXE_SRCDIR)/%.c $(HEADER)
 	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC)
 
-
-$(NAME): $(EXE_OBJ)
+$(NAME): $(EXE_OBJ) Makefile $(INC)
 	$(BUILT_LIB) $@ $^
 
 $(EXECUT): $(LIB) $(NAME)
-	$(CC) $(CFLAGS) $^ -o $@ 
+	$(CC) $(CFLAGS) $^ -o $@ -g
+
 #-------------------------------------------------#
 
 #==============CLEAN_UP======================#

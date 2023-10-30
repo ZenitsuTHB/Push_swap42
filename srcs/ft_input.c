@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:11:25 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 15:31:20 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/30 21:06:38 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ void	ft_input_arg(int ac, char **av)
 		avsp = ft_split(av[1], ' ');
 		check_input(avsp, 0);
 		check_duplicated(ac, avsp);
+		ft_clear_arg(&avsp, 0);
 	}
 	else
 		ft_error();

@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:09:54 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 20:26:32 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/30 16:21:23 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	swap(t_node **stack, t_node *first, t_node *second)
 {
 	//1)update the next ptr of 1st node, make it store the add of 3rd node\
-	//2)make the next ptr of second node(which is to be 1st),\
-		store the add of 1st node
+	//2)make the next ptr of second node(which is to be 1st),
+	//store the add of 1st node
 	//3)update the new head of the list as second node 
 	first->next = second->next;
 	second->next = first;
