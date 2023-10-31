@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/30 17:15:49 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/31 21:53:35 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 typedef struct	node 
 {
 	int			num;
+	int			size;
 //	struct node	*prev;
 	struct node	*next;
 }t_node;
@@ -42,7 +43,7 @@ typedef struct	node
 //{
 //	void			*content;
 //	struct s_list	*next;
-//}t_list;
+//}t_node;
 
 //======|  MOVES  |======/
 
@@ -52,9 +53,9 @@ void	pb(t_node **stack_a, int data);
 //_____________________________________________/
 
 //_______| _SWAP_ |___________________/
-void	sa(t_node *stack_a);
-void	sb(t_node *stack_b);
-void	ss(t_node *stack_a, t_node *stack_b);
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
 //_____________________________________________/
 
 //_______| _ROTATE_ |___________________/
@@ -70,11 +71,13 @@ void    rrb(t_node **stack_a);
 void    rrr(t_node **stack_a, t_node **stack_b);
 //==========================================/
 
+//==========| _ALGORITHMS_ |==================/
+void    ft_sort3(t_node *stack);
 void	ft_error(void);
 int		ft_is_sorted(t_node *stack);
 void    ft_clearnodes(t_node **stack);
 void    ft_clear_arg(char ***stack, int i);
- 
+int     ft_nodesize(t_node *lst); 
 void	ft_input_arg(int argc, char **argv);
 
 #endif

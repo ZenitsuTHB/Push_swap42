@@ -6,11 +6,28 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/30 21:07:51 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/31 22:25:40 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*=====| _LSTSIZE_ |=========*/
+int	ft_nodesize(t_node *lst)
+{
+	int	count;
+
+	count = 0;
+	if (!lst)
+		return (count);
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst->next;
+	}
+	return (count++);
+}
+/*==========================*/
 
 /*==================FILL_STACK_CREATE_NODES====================*/
 t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
@@ -36,9 +53,9 @@ t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 	while (argv[i])
 	{
 		stack->num = ft_atoi(argv[i]);
-		printf("this is the node [%d] --> %d\n", i, stack->num);
+//		printf("this is the node [%d] --> %d\n", i, stack->num);
 		if (argv[i + 1])
-			stack->next = (t_node*)malloc(sizeof(t_node));
+			stack->next = (t_node *)malloc(sizeof(t_node));
 		// El ultimo caso no se guardara bien!!!!! argv[i + 1] .....
 		else
 			stack->next = NULL;
@@ -50,28 +67,29 @@ t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 	return (head);
 }
 /*------------------------------------------------------------*/
-
+void    print_stack(t_node *stack);
 /*=================PUSH_SWAP_MAIN=============================*/
 int	main(int argc, char **argv)
 {
-	t_node *stack_a;
+	 t_node	*stack_a;
+	 t_node *stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
-	printf("%d\n", ft_is_sorted(stack_a));
-	//while (stack_a->next != NULL)
-	//{
-	//	printf("%d\n", stack_a->num);
-	//	stack_a = stack_a->next; 
-	//}
+	stack_a->size = ft_nodesize(stack_a);
+	printf("size stak_a -> %d\n", stack_a->size);
+	printf("stak_a before operation\n");
+	print_stack(stack_a);
 	if(ft_is_sorted(stack_a) == 0)
 	{
 		printf("is sorted bro\n");
 	}
-	else 
+	else if(stack_a->size <= 3) 
 	{
-		printf("is not sorted bro\n"); 
+		printf("is not sorted bro, size less or = to 3, sort3\n");
+	   ft_sort3(stack_a);	
 	}
 	ft_clearnodes(&stack_a);
 	return (0);

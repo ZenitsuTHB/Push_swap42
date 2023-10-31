@@ -6,23 +6,23 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:37:55 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/29 20:39:17 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/31 22:25:44 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	rotate(t_node **stack)
+static void	rotate(t_node **stack)
 {
 	t_node *new;
 	t_node *current;
 
 	new = (*stack)->next;
 	current = (*stack);
-	while(current->next != NULL)
+	while(current->next->next != NULL)
 		current = current->next;
-	current->next = (*stack);
-	(*stack)->next = NULL;
+	current->next->next = (*stack);
+	current->next = NULL;
 }
 
 void	ra(t_node **stack_a)

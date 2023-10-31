@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 22:46:23 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/30 21:07:47 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/10/31 21:47:20 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,12 @@ int	ft_is_sorted(t_node *stack)
 	int out;
 
 	out = 0;
-	printf("tooop\n");
 	while (stack->next && out == 0)
 	{
-		printf("stack = %d\n", stack->num);
 		if(stack->num > stack->next->num)
 			out = 1;
 		stack = stack->next;
-		printf("out=%d\n", out);
 	}
-	printf("stack = %d\n", stack->num);
 	return (out);
 }
 //=============================================/
