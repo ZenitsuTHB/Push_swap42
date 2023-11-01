@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/31 22:25:40 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:14:17 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,14 @@ int	main(int argc, char **argv)
 	if(ft_is_sorted(stack_a) == 0)
 	{
 		printf("is sorted bro\n");
+		ft_clearnodes(&stack_a);
 	}
 	else if(stack_a->size <= 3) 
 	{
 		printf("is not sorted bro, size less or = to 3, sort3\n");
-	   ft_sort3(stack_a);	
+	   	ft_sort3(stack_a);	
 	}
-	ft_clearnodes(&stack_a);
+//	ft_clearnodes(&stack_a);
 	return (0);
 }
 /*------------------------------------------------------------*/

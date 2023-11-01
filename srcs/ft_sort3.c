@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:51:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/31 22:25:36 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:14:06 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,33 @@ void	ft_sort3(t_node *stack)
 	num3 = stack->next->next->num;
 	if(num1 > num2 && num2 < num3 && num3 > num1)
 	{
-		printf("second case\n");
+		printf("second case\nnum1 > num2 && num2 < num3 && num3 > num1\n");
 		sa(&stack);
 		print_stack(stack);
 	}
 	else if(num1 < num2 && num2 > num3)
 	{
-		printf("third case\n");
+		printf("third case\nnum1 < num2 && num2 > num3\n");
 		rra(&stack);
 		print_stack(stack);
 	}
 	else if(num1 > num2 && num2 > num3)
 	{
-		printf("4th case\n");
+		printf("4th case\nnum1 > num2 && num2 > num3\n");
 		sa(&stack);
 		print_stack(stack);
 		rra(&stack);
 		print_stack(stack);
+	//	ft_clearnodes(&stack);
 	}
 	else if(num1 > num2 && num2 < num3 && num3 < num1)
 	{
-		printf("5th case\n");
+		printf("5th case\nnum1 > num2 && num2 < num3 && num3 < num1\n");
 		ra(&stack);
 		print_stack(stack);
 	}
 	else
 		printf("bigger algo bro\n");
 	stack->size--;
+	ft_clearnodes(&stack);
 }

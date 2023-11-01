@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 22:46:23 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/31 21:47:20 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:06:29 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void    ft_clearnodes(t_node **stack)
         ptr = *stack;
         *stack = ptr->next;
         free(ptr);
+		ptr = NULL;
     }
 }
 
@@ -51,12 +52,13 @@ int	ft_is_sorted(t_node *stack)
 	int out;
 
 	out = 0;
-	while (stack->next && out == 0)
+	while ((stack)->next && out == 0)
 	{
-		if(stack->num > stack->next->num)
+		if((stack)->num > (stack)->next->num)
 			out = 1;
-		stack = stack->next;
+		(stack) = (stack)->next;
 	}
+//	ft_clearnodes(&stack);
 	return (out);
 }
 //=============================================/

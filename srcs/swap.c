@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:09:54 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/31 22:25:48 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 19:14:22 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ static void	swap(t_node **stack)//, t_node *first, t_node *second)
 {
 //	int tmp;
 //
-//	tmp = stack->num;
-//	stack->num = stack->next->num;
-//	stack->next->num = tmp;
+//	tmp = (*stack)->num;
+//	(*stack)->num = (*stack)->next->num;
+//	(*stack)->next->num = tmp;
 	t_node	*first;
 	t_node	*second;
 	
 	first = *stack;
 	second = (*stack)->next;
-	*stack = second;
+	(*stack) = second;
 	first->next = second->next;
 	second->next = first;
+	//ft_clearnodes(&first);
+	//second = NULL;
 }
 
 void	sa(t_node **stack_a)
