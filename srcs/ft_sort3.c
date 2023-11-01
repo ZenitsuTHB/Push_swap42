@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:51:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/01 20:35:34 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 20:48:39 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	print_stack(t_node *stack)
         stack = stack->next;
     }
 }
+//to structure 
 void	ft_sort3(t_node *stack)
 {
 	int 	num1;
