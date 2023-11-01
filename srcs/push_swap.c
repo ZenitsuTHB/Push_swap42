@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/01 19:14:17 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 20:43:00 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
 	stack_a->size = ft_nodesize(stack_a);
+	ft_index(stack_a);
 	printf("size stak_a -> %d\n", stack_a->size);
 	printf("stak_a before operation\n");
 	print_stack(stack_a);

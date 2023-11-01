@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/01 18:12:03 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/01 20:22:20 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	node
 {
 	int			num;
 	int			size;
+	int			index;
 //	struct node	*prev;
 	struct node	*next;
 }t_node;
@@ -79,5 +80,6 @@ void    ft_clearnodes(t_node **stack);
 void    ft_clear_arg(char ***stack, int i);
 int     ft_nodesize(t_node *lst); 
 void	ft_input_arg(int argc, char **argv);
+void	ft_index(t_node *stack);
 
 #endif
