@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/01 20:48:51 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/02 21:31:29 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,26 +72,29 @@ void    print_stack(t_node *stack);
 int	main(int argc, char **argv)
 {
 	 t_node	*stack_a;
-	 t_node *stack_b;
 
 	stack_a = NULL;
-	stack_b = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
 	stack_a->size = ft_nodesize(stack_a);
 	ft_index(stack_a);
-	printf("size stak_a -> %d\n", stack_a->size);
+	printf("\n\nsize stak_a -> %d\n", stack_a->size);
 	printf("stak_a before operation\n");
 	print_stack(stack_a);
 	if(ft_is_sorted(stack_a) == 0)
 	{
-		printf("is sorted bro\n");
+		printf("Stack is sorted bro\n");
 		ft_clearnodes(&stack_a);
 	}
 	else if(stack_a->size <= 3) 
 	{
-		printf("is not sorted bro, size less or = to 3, sort3\n");
+		printf("Stack isn't sorted bro, size less or = to 3, sort3\n");
 	   	ft_sort3(stack_a);	
+	}
+	else if (stack_a->size > 3 && stack_a->size <= 5)
+	{
+		printf("Stack isn't sorted bro, size less or = to 5, sort5\n");
+		ft_sort5(stack_a);
 	}
 //	ft_clearnodes(&stack_a);
 	return (0);

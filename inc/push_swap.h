@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/01 20:50:51 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/02 20:49:24 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ typedef struct	node
 	struct node	*next;
 }t_node;
 
+
+
+/***********************************/
+/*  to delete after organize       */
+void    print_stack(t_node *stack);//
+/***********************************/
+
+
+
 //typedef struct s_stack
 //{ 
 //	struct *node top_a;
@@ -49,8 +58,8 @@ typedef struct	node
 //======|  MOVES  |======/
 
 //_______| _PUSH_ |___________________/
-void	pa(t_node **stack_a, int data);
-void	pb(t_node **stack_a, int data);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_a, t_node **stack_b);
 //_____________________________________________/
 
 //_______| _SWAP_ |___________________/
@@ -74,6 +83,7 @@ void    rrr(t_node **stack_a, t_node **stack_b);
 
 //==========| _ALGORITHMS_ |==================/
 void    ft_sort3(t_node *stack);
+void    ft_sort5(t_node *a);
 void	ft_error(void);
 int		ft_is_sorted(t_node *stack);
 void    ft_clearnodes(t_node **stack);
