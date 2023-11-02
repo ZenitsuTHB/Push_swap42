@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:11:25 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/31 18:22:40 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/02 17:04:28 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,5 @@ void	ft_input_arg(int ac, char **av)
 		ft_clear_arg(&avsp, 0);
 	}
 	else
-		ft_error();
+		exit(0);
 }
