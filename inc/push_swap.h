@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/03 13:25:15 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:06:10 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void    rrr(t_node **stack_a, t_node **stack_b);
 //==========================================/
 
 //==========| _ALGORITHMS_ |==================/
-void    ft_sort3(t_node *stack);
+void    ft_sort3(t_node **stack, int if_5);
 void    ft_sort5(t_node *stack);
 void	ft_error(void);
 int		ft_is_sorted(t_node *stack);

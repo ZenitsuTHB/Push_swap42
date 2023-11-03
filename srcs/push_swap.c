@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/03 13:35:31 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/03 19:46:06 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 /*=====| _LSTSIZE_ |=========*/
 int	ft_nodesize(t_node *lst)
 {
+	t_node *tmp;
 	int	count;
 
 	count = 0;
-	if (!lst)
+	tmp = lst;
+	if (!tmp)
 		return (count);
-	while (lst != NULL)
+	while (tmp != NULL)
 	{
 		count++;
-		lst = lst->next;
+		tmp = tmp->next;
 	}
 	return (count++);
 }
@@ -76,9 +78,9 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
-	stack_a->size = ft_nodesize(stack_a);
+	//stack_a->size = ft_nodesize(stack_a);
 	ft_index(stack_a);
-	printf("\n\nsize stak_a -> %d\n", stack_a->size);
+	printf("\n\nsize stak_a -> %d\n", ft_nodesize(stack_a));
 	printf("stak_a before operation\n");
 	print_stack(stack_a);
 	if(ft_is_sorted(stack_a) == 0)
@@ -86,12 +88,12 @@ int	main(int argc, char **argv)
 		printf("Stack is sorted bro\n");
 		ft_clearnodes(&stack_a);
 	}
-	else if(stack_a->size <= 3) 
+	else if(ft_nodesize(stack_a) <= 3) 
 	{
 		printf("Stack isn't sorted bro, size less or = to 3, sort3\n");
-	   	ft_sort3(stack_a);	
+	   	ft_sort3(&stack_a, 1);	
 	}
-	else if (stack_a->size > 3 && stack_a->size <= 5)
+	else if (ft_nodesize(stack_a) > 3 && ft_nodesize(stack_a) <= 5)
 	{
 		printf("Stack isn't sorted bro, size less or = to 5, sort5\n");
 		ft_sort5(stack_a);
