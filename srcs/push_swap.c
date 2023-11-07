@@ -6,14 +6,14 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/03 19:46:06 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/06 09:07:54 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 /*=====| _LSTSIZE_ |=========*/
-int	ft_nodesize(t_node *lst)
+int	ft_stacksize(t_node *lst)
 {
 	t_node *tmp;
 	int	count;
@@ -78,9 +78,9 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	ft_input_arg(argc, argv);
 	stack_a = ft_fillstack(argc, argv, stack_a);
-	//stack_a->size = ft_nodesize(stack_a);
+	//stack_a->size = ft_stacksize(stack_a);
 	ft_index(stack_a);
-	printf("\n\nsize stak_a -> %d\n", ft_nodesize(stack_a));
+	printf("\n\nsize stak_a -> %d\n", ft_stacksize(stack_a));
 	printf("stak_a before operation\n");
 	print_stack(stack_a);
 	if(ft_is_sorted(stack_a) == 0)
@@ -88,15 +88,15 @@ int	main(int argc, char **argv)
 		printf("Stack is sorted bro\n");
 		ft_clearnodes(&stack_a);
 	}
-	else if(ft_nodesize(stack_a) <= 3) 
+	else if(ft_stacksize(stack_a) <= 3) 
 	{
 		printf("Stack isn't sorted bro, size less or = to 3, sort3\n");
 	   	ft_sort3(&stack_a, 1);	
 	}
-	else if (ft_nodesize(stack_a) > 3 && ft_nodesize(stack_a) <= 5)
+	else if (ft_stacksize(stack_a) > 3 && ft_stacksize(stack_a) <= 5)
 	{
 		printf("Stack isn't sorted bro, size less or = to 5, sort5\n");
-		ft_sort5(stack_a);
+		ft_sort5(&stack_a);
 	}
 //	ft_clearnodes(&stack_a);
 	return (0);

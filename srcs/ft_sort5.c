@@ -6,43 +6,40 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:11:48 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/03 19:44:33 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 16:20:46 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static	void	find_biggest()
-{
-} 
-
-void	ft_sort5(t_node *stacka)
+//I comment the line iterator = stack in my ft_index in utills.
+void	ft_sort5(t_node **stacka)
 {
 	int		count;
 	t_node *stackb;
 
-	printf("stacka->size before loop %d\n", ft_nodesize(stacka));
 	count = 0;
 	stackb = NULL;
 	while (stacka && count < 2)
 	{
-		printf("\nstacka->size now is %d\n", ft_nodesize(stacka));
-		pb(&stacka, &stackb);
-		printf("=======stack_b========\n");
+		ft_put_max_top(stacka);
+		pb(stacka, &stackb);
 		print_stack(stackb);
-	//	printf("\n\n=======stack_a========\n");
-	//	print_stack(stacka);
+		printf("staka after pushing to b\n");
+		print_stack(*stacka);
 		count++;
-		//stacka->size--;
 	}
-	printf("\n\n=======stack_a after loop========\n");
-	//stacka->size = 3;//manualmente pero tengo que encontrar forma de decrementar
-	//stacka->size;
-	ft_sort3(&stacka, 0);
-	//printf("\nstacka->size now is %d\n", stacka->size);
+	ft_sort3(stacka, 0);
 	printf("\n\n=======stack_a after sort3=======\n");
-	print_stack(stacka);
-	ft_clearnodes(&stacka);// comment because stacka is freed in sort3;
+	print_stack(*stacka);
+	while (count > 0)
+	{
+		pa(stacka, &stackb);
+		count--;
+	}
+	printf("stack a after pushing a\n");
+	print_stack(*stacka);
+	ft_clearnodes(stacka);// comment because stacka is freed in sort3;
 	ft_clearnodes(&stackb);
 }
 //look for the biggest num and past it to b

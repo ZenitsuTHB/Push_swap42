@@ -6,28 +6,28 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:57:19 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/03 19:46:09 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 16:20:52 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static	void push(t_node **stacka, t_node **stackb)
+static	void push(t_node **stack1, t_node **stack2)
 {
-	t_node	*tmp_b;
+	t_node	*tmp_2;
 	
-	if (stacka)
+	if (stack1)
 	{
-		tmp_b = *stacka;
-		(*stacka) = (*stacka)->next;
-		tmp_b->next = *stackb;
-		(*stackb) = tmp_b;
+		tmp_2 = *stack1;
+		(*stack1) = (*stack1)->next;
+		tmp_2->next = *stack2;
+		(*stack2) = tmp_2;
 	}
 }
 
 void	pa(t_node **stacka, t_node **stackb)
 {
-	push(stacka, stackb);
+	push(stackb, stacka);
 	ft_putendl_fd("pa", 1);
 }
 
