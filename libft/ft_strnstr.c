@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 22:03:11 by avolcy            #+#    #+#             */
-/*   Updated: 2023/05/30 16:35:08 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:45:54 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ char	*ft_strnstr(const char *b_str, const char *l_str, size_t len)
 			++j;
 		}
 		if (!l_str[j])
-		{
 			return ((char *)&(b_str[i]));
-		}	
 		++i;
 	}
 	return (0);

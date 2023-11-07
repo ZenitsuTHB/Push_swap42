@@ -6,13 +6,12 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:11:48 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/07 16:20:46 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:29:04 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//I comment the line iterator = stack in my ft_index in utills.
 void	ft_sort5(t_node **stacka)
 {
 	int		count;
@@ -20,6 +19,8 @@ void	ft_sort5(t_node **stacka)
 
 	count = 0;
 	stackb = NULL;
+	if (ft_stacksize(*stacka) == 4)
+		count = 1;
 	while (stacka && count < 2)
 	{
 		ft_put_max_top(stacka);
@@ -32,11 +33,8 @@ void	ft_sort5(t_node **stacka)
 	ft_sort3(stacka, 0);
 	printf("\n\n=======stack_a after sort3=======\n");
 	print_stack(*stacka);
-	while (count > 0)
-	{
-		pa(stacka, &stackb);
-		count--;
-	}
+	while (stackb)
+			pa(stacka, &stackb);
 	printf("stack a after pushing a\n");
 	print_stack(*stacka);
 	ft_clearnodes(stacka);// comment because stacka is freed in sort3;

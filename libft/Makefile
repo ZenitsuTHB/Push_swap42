@@ -6,7 +6,7 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 21:16:09 by avolcy            #+#    #+#              #
-#    Updated: 2023/10/30 16:17:36 by avolcy           ###   ########.fr        #
+#    Updated: 2023/11/07 17:56:26 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC_B = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 OBJ = $(SRC:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 
-all : $(NAME)
+all : $(NAME) bonus
 #------------------------------------------------------------------------------
 #___$@ means the target which is in that case below $(NAME)___ \
 ___$< means the 1s dependency of a rule refer to the 1s item of the list of \

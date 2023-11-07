@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 10:49:18 by avolcy            #+#    #+#             */
-/*   Updated: 2023/09/07 17:36:48 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:37:30 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@
 //}
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-  	t_list	*newnode;
-	t_list	*node;
 	void	*aux;
+	t_list	*node;
+	t_list	*newnode;
 
 	node = 0;
 	while (lst)

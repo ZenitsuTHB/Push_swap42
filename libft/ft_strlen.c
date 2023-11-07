@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:08:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/10/18 18:55:12 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:45:08 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *x)
 {
 	int	i;
 
-	if(*x == '\0' || x == NULL)
+	if (*x == '\0' || x == NULL)
 		return (0);
 	i = 0;
 	while (x[i] != '\0')

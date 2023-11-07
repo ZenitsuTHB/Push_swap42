@@ -6,16 +6,16 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:57:19 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/07 16:20:52 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:40:05 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static	void push(t_node **stack1, t_node **stack2)
+static	void	push(t_node **stack1, t_node **stack2)
 {
 	t_node	*tmp_2;
-	
+
 	if (stack1)
 	{
 		tmp_2 = *stack1;

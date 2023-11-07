@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 20:31:55 by avolcy            #+#    #+#             */
-/*   Updated: 2023/08/14 15:53:00 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:46:32 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		res[i++] = *s1++;
 	while (*s2)
 		res[i++] = *s2++;
-		res[i] = '\0';
+	res[i] = '\0';
 	return (res);
 }
 

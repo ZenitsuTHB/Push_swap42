@@ -6,16 +6,16 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 19:28:58 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/06 10:58:35 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:41:38 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static	void rev_rotate(t_node **stack)
+static	void	rev_rotate(t_node **stack)
 {
-	t_node *current;
-	t_node *new_head;
+	t_node	*current;
+	t_node	*new_head;
 
 	current = *stack;
 	new_head = *stack;
@@ -25,6 +25,7 @@ static	void rev_rotate(t_node **stack)
 	new_head = current->next;
 	current->next = NULL;
 	*stack = new_head;
+}
 //	t_node	*current;
 //	t_node	*old_head;
 //	t_node	*new_head;
@@ -43,7 +44,6 @@ static	void rev_rotate(t_node **stack)
 //	*stack = new_head;
 //	new_head->next = old_head;
 //	new_tail->next = NULL;
-}
 
 void	rra(t_node **stack_a)
 {

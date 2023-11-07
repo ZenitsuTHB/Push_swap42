@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:37:55 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/06 11:01:48 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 20:43:58 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 
 static void	rotate(t_node **stack)
 {
-	t_node *newhead;
-	t_node *current;
-//	t_node *prev;
+	t_node	*newhead;
+	t_node	*current;
 
-//	prev = NULL;
 	newhead = (*stack)->next;
 	current = (*stack);
-	while(current->next != NULL)
+	while (current->next != NULL)
 	{
-//		prev = current;
 		current = current->next;
 	}
+	current->next = (*stack);
+	(*stack)->next = NULL;
+	(*stack) = newhead;
+}
+//	t_node *prev;
+//	prev = NULL;
+//		prev = current;
 //	prev->next = current;
 //	current->next = (*stack);
 //	(*stack)->next = NULL;
 //	(*stack) = prev;
 //	current = NULL;
-	current->next = (*stack);
-	(*stack)->next = NULL;
-   	(*stack) = newhead;
+
 //	newhead->next = (*stack)->next;
 //	ft_clearnodes(&);
-}
 
 void	ra(t_node **stack_a)
 {

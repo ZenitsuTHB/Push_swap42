@@ -6,14 +6,14 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 15:21:46 by avolcy            #+#    #+#             */
-/*   Updated: 2023/06/07 21:27:44 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 17:44:39 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
-{	
+{
 	long	nb;
 
 	nb = n;
