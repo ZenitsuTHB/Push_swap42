@@ -6,66 +6,83 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:51:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/07 21:04:17 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/08 17:13:26 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+//--------------------------------------------------------------------//
 void	print_stack(t_node *stack)
 {
 	while (stack)
-    {
-        printf("this is node[%i] -> %d\n", stack->index, stack->num);
-        stack = stack->next;
-    }
+	{
+		printf("this is node[%i] -> %d\n", stack->index, stack->num);
+		stack = stack->next;
+	}
 }
-//to structure 
-//instead of using stacka->size, call directly the function that 
-//calcutes the size
+//--------------------------------------------------------------------//
+
+//=================|_SORT_2_ALGO_|====================================//
 static	void	ft_sort2(t_node **stack)
 {
-		if (ft_stacksize(*stack) == 2 && ft_is_sorted(*stack) == 1)
-		{
-			printf("\nnumber is 2\n");
-			sa(stack);
-			print_stack(*stack);
-		}
-		else
-			exit(0);
-		ft_clearnodes(stack);	
+	if (ft_stacksize(*stack) == 2 && ft_is_sorted(*stack) == 1)
+		sa(stack);
+	else
+		exit(0);
+	ft_clearnodes(stack);
 }
+//----------------------------------------------------------------//
+
+//=================|_SORT_3_ALGO_|======================================//
+void	ft_sort3b(t_node **stack, int *n1, int *n2, int *n3);
 
 void	ft_sort3(t_node **stack, int if_5)
 {
-	int 	num1;
-	int 	num2;
-	int 	num3;
+	int		num1;
+	int		num2;
+	int		num3;
 
 	if (ft_stacksize(*stack) <= 2)
 		ft_sort2(stack);
-	else if (ft_stacksize(*stack) == 3 && ft_is_sorted(*stack) == 1)
+	else if (ft_stacksize(*stack) == 3)
 	{
 		num1 = (*stack)->num;
 		num2 = (*stack)->next->num;
 		num3 = (*stack)->next->next->num;
-		if(num1 > num2 && num1 < num3 && num2 < num3)
-			sa(stack);
-		else if(num1 < num2 && num1 > num3)// && num3 < num1)
-			rra(stack);
-		else if(num1 < num2 && num1 < num3)// && num3 < num1)
-		{	
-			sa(stack);
-			ra(stack);
-		}
-		else if(num1 > num2 && num1 > num3 && num2 < num3)
-			ra(stack);
-		else //(num1 > num2 && num1 > num3 && num2 > num3)
-		{
-			ra(stack);
-			sa(stack);
-		}
+		ft_sort3b(stack, &num1, &num2, &num3);
 		if (if_5 == 1)
 			ft_clearnodes(stack);
 	}
 }
+//----------------------------------------------------------------------//
+
+//------------------------------------------//
+// && n3 < n1) second and third case       //
+//(n1 > n2 && n1 > n3 && n2 > n3)last case //
+//-----------------------------------------//
+
+//===============|_SORT_3B_ALGO_|======================================//
+void	ft_sort3b(t_node **stack, int *n1, int *n2, int *n3)
+{
+	if (ft_is_sorted(*stack) == 1)
+	{
+		if (*n1 > *n2 && *n1 < *n3 && *n2 < *n3)
+			sa(stack);
+		else if (*n1 < *n2 && *n1 > *n3)
+			rra(stack);
+		else if (*n1 < *n2 && *n1 < *n3)
+		{
+			sa(stack);
+			ra(stack);
+		}
+		else if (*n1 > *n2 && *n1 > *n3 && *n2 < *n3)
+			ra(stack);
+		else
+		{
+			ra(stack);
+			sa(stack);
+		}
+	}
+}
+//=========================================================================//

@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/07 17:35:27 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/08 19:06:23 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ typedef struct node
 	int			pos;
 	int			size;
 	int			index;
+//	int			min_moves;
 	struct node	*next;
 }t_node;
 
+//
 /***********************************/
 /*  to delete after organize       */
 void	print_stack(t_node *stack);//
