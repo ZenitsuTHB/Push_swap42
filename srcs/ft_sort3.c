@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 20:51:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/08 17:13:26 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/19 17:06:05 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_sort3(t_node **stack, int if_5)
 		num2 = (*stack)->next->num;
 		num3 = (*stack)->next->next->num;
 		ft_sort3b(stack, &num1, &num2, &num3);
+		//print_stack(*stack);
 		if (if_5 == 1)
 			ft_clearnodes(stack);
 	}

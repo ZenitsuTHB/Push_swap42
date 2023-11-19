@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:23:06 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/08 19:06:26 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/13 13:28:17 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,6 @@ void	ft_index(t_node *stack)
 	}
 }
 
-//static int find_max_pos(t_node *stack)
-//{
-//	int pos;
-//	int num;
-//	int cur_pos;
-//
-//	cur_pos = 0;
-//	num = stack->num;
-//	while (stack)
-//	{
-//		if (stack->num > num)
-//		{
-//			pos = cur_pos;
-//			num = stack->num;
-//		}
-//		cur_pos++;
-//		stack = stack->next;
-//	}
-//	return (pos);}
-
 static	int	find_min_pos(t_node *stack)
 {
 	int		pos;
@@ -76,21 +56,7 @@ static	int	find_min_pos(t_node *stack)
 	return (pos);
 }
 
-//static int  find_max_node(t_node *stack)
-//{
-//	int num;
-//
-//	num = stack->num;
-//	while (stack)
-//	{
-//		if (stack->num > num)
-//			num = stack->num;
-//		stack = stack->next;
-//	}
-//	return (num);
-//}
-
-void	ft_put_max_top(t_node **stack)
+void	ft_put_min_top(t_node **stack)
 {
 	int		position;
 	int		way_up;
@@ -118,3 +84,36 @@ void	ft_put_max_top(t_node **stack)
 		}
 	}
 }
+
+//static int find_max_pos(t_node *stack)
+//{
+//	int pos;
+//	int num;
+//	int cur_pos;
+//
+//	cur_pos = 0;
+//	num = stack->num;
+//	while (stack)
+//	{
+//		if (stack->num > num)
+//		{
+//			pos = cur_pos;
+//			num = stack->num;
+//		}
+//		cur_pos++;
+//		stack = stack->next;
+//	}
+//	return (pos);}
+//static int  find_max_node(t_node *stack)
+//{
+//	int num;
+//
+//	num = stack->num;
+//	while (stack)
+//	{
+//		if (stack->num > num)
+//			num = stack->num;
+//		stack = stack->next;
+//	}
+//	return (num);
+//	

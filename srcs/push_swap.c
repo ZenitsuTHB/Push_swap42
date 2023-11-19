@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/08 17:37:34 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/18 19:35:23 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,32 +68,24 @@ t_node	*ft_fillstack(int argc, char **argv, t_node *stack)
 }
 /*------------------------------------------------------------*/
 
-void	print_stack(t_node *stack);
-
 /*=================PUSH_SWAP_MAIN=============================*/
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
+	t_node	*stacka;
 
-	stack_a = NULL;
+	stacka = NULL;
 	ft_input_arg(argc, argv);
-	stack_a = ft_fillstack(argc, argv, stack_a);
-	ft_index(stack_a);
-	printf("\n\nsize stak_a -> %d\n", ft_stacksize(stack_a));
-	printf("stak_a before operation\n");
-	print_stack(stack_a);
-	if (ft_is_sorted(stack_a) == 0)
-		ft_clearnodes(&stack_a);
-	else if (ft_stacksize(stack_a) <= 3)
-	{
-		printf("Stack isn't sorted bro, size less or = to 3, sort3\n");
-		ft_sort3(&stack_a, 1);
-	}
-	else if (ft_stacksize(stack_a) > 3 && ft_stacksize(stack_a) <= 5)
-	{
-		printf("Stack isn't sorted bro, size less or = to 5, sort5\n");
-		ft_sort5(&stack_a);
-	}
+	stacka = ft_fillstack(argc, argv, stacka);
+//	ft_index(stacka);
+//	print_stack(stacka);
+	if (ft_is_sorted(stacka) == 0)
+		ft_clearnodes(&stacka);
+	else if (ft_stacksize(stacka) <= 3)
+		ft_sort3(&stacka, 1);
+	else if (ft_stacksize(stacka) > 3 && ft_stacksize(stacka) <= 5)
+		ft_sort5(&stacka);
+	else if (ft_stacksize(stacka) > 5)
+		ft_bigsort(&stacka);
 	return (0);
 }
 /*------------------------------------------------------------*/

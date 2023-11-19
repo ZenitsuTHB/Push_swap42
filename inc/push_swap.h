@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/08 19:06:23 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/19 18:21:32 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,25 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-# define ARG_MSG "Please, try some good arguments now🙄🥱\n"
-# define SIGN_MSG "🤨Why did you put a sign in middle or at end🙄🙄\n"
-# define CHAR_MSG "Characters found👊😡! push_swap can't be processed🥵\n"
-# define INT_PROB "Your input has number bigger or smaller than integer🤓🤓\n"
-# define DUP_MSG "It seems like you have duplicated number🧐, try again🤪\n"
+typedef struct s_move
+{
+	int			ra;
+	int			rb;
+//	int			rr;
+	int			rra;
+	int			rrb;
+//	int			rrr;
+	int			cost;
+}t_move;
 
-typedef struct node
+typedef struct	s_node
 {
 	int			num;
-	int			pos;
-	int			size;
 	int			index;
-//	int			min_moves;
+	t_move		*moves;
 	struct node	*next;
 }t_node;
+
 
 //
 /***********************************/
@@ -68,7 +72,8 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 
 //==========| _ALGORITHMS_ |==================/
 void	ft_sort3(t_node **stack, int if_5);
-void	ft_sort5(t_node **stack);
+void	ft_sort5(t_node **stacka);//, t_node **stackb);
+void	ft_bigsort(t_node **stacka);//, t_node **stackb);
 void	ft_error(void);
 int		ft_is_sorted(t_node *stack);
 void	ft_clearnodes(t_node **stack);
@@ -76,6 +81,5 @@ void	ft_clear_arg(char ***stack, int i);
 int		ft_stacksize(t_node *lst);
 void	ft_input_arg(int argc, char **argv);
 void	ft_index(t_node *stack);
-void	ft_put_max_top(t_node **stack);
-
+void	ft_put_min_top(t_node **stack);
 #endif
