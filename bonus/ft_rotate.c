@@ -18,8 +18,6 @@ static void	rotate(t_node **stack)
 	t_node	*current;
 
 	newhead = (*stack)->next;
-	if(newhead == NULL)
-		return ;
 	current = (*stack);
 	while (current->next != NULL)
 	{

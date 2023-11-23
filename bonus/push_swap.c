@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:15:53 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/22 21:20:40 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/18 19:35:23 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	stacka = NULL;
 	ft_input_arg(argc, argv);
 	stacka = ft_fillstack(argc, argv, stacka);
-	ft_index(stacka);
+//	ft_index(stacka);
 //	print_stack(stacka);
 	if (ft_is_sorted(stacka) == 0)
 		ft_clearnodes(&stacka);
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 	else if (ft_stacksize(stacka) > 3 && ft_stacksize(stacka) <= 5)
 		ft_sort5(&stacka);
 	else if (ft_stacksize(stacka) > 5)
-		ft_bigsort2(&stacka);
+		ft_bigsort(&stacka);
 	return (0);
 }
 /*------------------------------------------------------------*/

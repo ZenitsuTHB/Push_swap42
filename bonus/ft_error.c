@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 22:46:23 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/22 20:03:45 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/07 19:30:39 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //======| _FT_ERROR_ |========/
 void	ft_error(void)
 {
-	write(2, "Error\n", 6);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 //==========================/
@@ -40,7 +40,7 @@ void	ft_clearnodes(t_node **stack)
 	while (*stack != NULL)
 	{
 		ptr = *stack;
-		*stack = (*stack)->next;
+		*stack = ptr->next;
 		free(ptr);
 		ptr = NULL;
 	}

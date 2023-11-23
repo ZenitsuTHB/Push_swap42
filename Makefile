@@ -6,7 +6,7 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 12:04:03 by avolcy            #+#    #+#              #
-#    Updated: 2023/11/17 11:17:07 by avolcy           ###   ########.fr        #
+#    Updated: 2023/11/23 22:52:47 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,13 +44,13 @@ $(LIB):
 	$(MAKE) -C $(LIB_DIR)
 
 %.o: $(EXE_SRCDIR)/%.c $(HEADER)
-	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC) -fsanitize=address
+	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC)# -fsanitize=address
 
 $(NAME): $(EXE_OBJ) Makefile $(INC)
 	$(BUILT_LIB) $@ $^
 
 $(EXECUT): $(LIB) $(NAME)
-	$(CC) $(CFLAGS) $^ -o $@ -g -fsanitize=address
+	$(CC) $(CFLAGS) $^ -o $@ -g #-fsanitize=address
 
 #-------------------------------------------------#
 

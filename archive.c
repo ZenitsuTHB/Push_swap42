@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:09:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/19 20:30:10 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/21 17:19:53 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,8 @@ void    ft_bigsort(t_node **a)
 	int	median;
 	int	size;
 	t_node	*b;
-	t_node	*aux = *a;
+	t_node	*aux;
+	aux	= *a;
 	int		*array;
 
 	b = NULL;
@@ -136,7 +137,7 @@ void    ft_bigsort(t_node **a)
 	while ((aux != NULL && i < size))
 	{
 		array[i++] = (aux)->num;
-		(aux) = (aux)->next;
+		aux = aux->next;
 //		ft_put_min_top(a, median);
 	//	if (its_below_median(*a, median) == 1)
 	//		pb(a, &b);

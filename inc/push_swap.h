@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:18:12 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/19 18:21:32 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/22 21:12:26 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ typedef struct	s_node
 {
 	int			num;
 	int			index;
-	t_move		*moves;
-	struct node	*next;
+//	t_move		*moves;
+	struct s_node	*next;
 }t_node;
-
 
 //
 /***********************************/
@@ -73,7 +72,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 //==========| _ALGORITHMS_ |==================/
 void	ft_sort3(t_node **stack, int if_5);
 void	ft_sort5(t_node **stacka);//, t_node **stackb);
-void	ft_bigsort(t_node **stacka);//, t_node **stackb);
+int	ft_bigsort2(t_node **stacka);//, t_node **stackb);
 void	ft_error(void);
 int		ft_is_sorted(t_node *stack);
 void	ft_clearnodes(t_node **stack);
