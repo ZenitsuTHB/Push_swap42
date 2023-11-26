@@ -6,7 +6,7 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 21:37:55 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/12 22:18:37 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/26 17:12:19 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate(t_node **stack)
 	t_node	*current;
 
 	newhead = (*stack)->next;
-	if(newhead == NULL)
+	if (newhead == NULL)
 		return ;
 	current = (*stack);
 	while (current->next != NULL)
@@ -29,17 +29,6 @@ static void	rotate(t_node **stack)
 	(*stack)->next = NULL;
 	(*stack) = newhead;
 }
-//	t_node *prev;
-//	prev = NULL;
-//		prev = current;
-//	prev->next = current;
-//	current->next = (*stack);
-//	(*stack)->next = NULL;
-//	(*stack) = prev;
-//	current = NULL;
-
-//	newhead->next = (*stack)->next;
-//	ft_clearnodes(&);
 
 void	ra(t_node **stack_a)
 {
@@ -59,3 +48,14 @@ void	rr(t_node **stack_a, t_node **stack_b)
 	rotate(stack_b);
 	ft_putendl_fd("rr", 1);
 }
+/*	t_node *prev;
+	prev = NULL;
+		prev = current;
+	prev->next = current;
+	current->next = (*stack);
+	(*stack)->next = NULL;
+	(*stack) = prev;
+	current = NULL;
+
+	newhead->next = (*stack)->next;
+	ft_clearnodes(&);*/

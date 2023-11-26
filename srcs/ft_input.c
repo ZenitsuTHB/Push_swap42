@@ -6,12 +6,11 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:11:25 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/16 18:05:50 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/26 17:45:06 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
 long	ft_atol(char *str)
 {
@@ -87,14 +86,6 @@ void	check_input(char **av, int i)
 	}
 }
 
-/*-------------------------------------/
-/	check if num es digit              /
-/	check duplicated                   /
-/	check intsize                      /
-/	ckeck argv                         /
-/   dos casos                          /
-/   if ac = 2 and letter behind number /
-/-------------------------------------*/
 void	ft_input_arg(int ac, char **av)
 {
 	char	**avsp;
@@ -111,6 +102,8 @@ void	ft_input_arg(int ac, char **av)
 		check_duplicated(ac, avsp);
 		ft_clear_arg(&avsp, 0);
 	}
+	else if (ac == 2 && !ft_isdigit(av[1][0]))
+		ft_error();
 	else
 		exit(0);
 }

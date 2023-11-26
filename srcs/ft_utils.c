@@ -6,12 +6,32 @@
 /*   By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:23:06 by avolcy            #+#    #+#             */
-/*   Updated: 2023/11/13 13:28:17 by avolcy           ###   ########.fr       */
+/*   Updated: 2023/11/26 17:09:39 by avolcy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+/*=====| _LSTSIZE_ |=========*/
+int	ft_stacksize(t_node *lst)
+{
+	int		count;
+	t_node	*tmp;
+
+	count = 0;
+	tmp = lst;
+	if (!tmp)
+		return (count);
+	while (tmp != NULL)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count++);
+}
+/*___________________________*/
+
+/*======|_FT_INDEX_|==========*/
 void	ft_index(t_node *stack)
 {
 	int		idx;
@@ -34,7 +54,9 @@ void	ft_index(t_node *stack)
 		head = head->next;
 	}
 }
+/*----------------------------------------*/
 
+/*========|_FIND_MIN_POS_|=============*/
 static	int	find_min_pos(t_node *stack)
 {
 	int		pos;
@@ -55,7 +77,9 @@ static	int	find_min_pos(t_node *stack)
 	}
 	return (pos);
 }
+/*---------------------------------------*/
 
+/*========|_PUT_MIN_TOP_|=============*/
 void	ft_put_min_top(t_node **stack)
 {
 	int		position;
@@ -84,7 +108,7 @@ void	ft_put_min_top(t_node **stack)
 		}
 	}
 }
-
+/*--------------------------------------*/
 //static int find_max_pos(t_node *stack)
 //{
 //	int pos;
@@ -116,4 +140,4 @@ void	ft_put_min_top(t_node **stack)
 //		stack = stack->next;
 //	}
 //	return (num);
-//	
+//}	
