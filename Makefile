@@ -6,7 +6,7 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 12:04:03 by avolcy            #+#    #+#              #
-#    Updated: 2023/11/26 16:13:43 by avolcy           ###   ########.fr        #
+#    Updated: 2023/11/26 20:10:27 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,34 +27,44 @@ LIB = $(LIB_DIR)/libft.a
 #------------------------#
 
 #============FLAGS===================#
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g 
+CC = cc
+CFLAGS = -Wall -Werror -Wextra  
 #-----------------------------------#
 
 #============SRCS============#
 #wilcard is used to refer to al the .c of the specified directory
-EXE_SRC = $(wildcard $(EXE_SRCDIR)/*.c)
+EXE_SRC = $(EXE_SRCDIR)/ft_bigsort2.c $(EXE_SRCDIR)/ft_push.c \
+		  $(EXE_SRCDIR)/ft_sort3.c $(EXE_SRCDIR)/ft_utils.c \
+		  $(EXE_SRCDIR)/ft_error.c $(EXE_SRCDIR)/ft_revrotate.c \
+		  $(EXE_SRCDIR)/ft_sort5.c $(EXE_SRCDIR)/push_swap.c \
+		  $(EXE_SRCDIR)/ft_input.c $(EXE_SRCDIR)/ft_rotate.c \
+		  $(EXE_SRCDIR)/ft_swap.c
 EXE_OBJ = $(EXE_SRC:.c=.o)
 #---------------------------#
 
 #===TARGETS===#
-all: $(EXECUT) 
-#===============COMPILATIONS======================#
+all: $(EXECUT)
+
+#===============|___COMPILATIONS__|======================#
 $(LIB):
-	$(MAKE) -C $(LIB_DIR)
+	@$(MAKE) -C $(LIB_DIR)
+#-------------------------------------------------#
 
 %.o: $(EXE_SRCDIR)/%.c $(HEADER)
-	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC)# -fsanitize=address
+	$(CC) $(CFLAGS) -c -o $@ $< -I $(INC)#-fsanitize=address
+#------------------------------------------------------------#
 
 $(NAME): $(EXE_OBJ) Makefile $(INC)
 	$(BUILT_LIB) $@ $^
+#-----------------------------------#
 
 $(EXECUT): $(LIB) $(NAME)
-	$(CC) $(CFLAGS) $^ -o $@ -g #-fsanitize=address
+	$(CC) $(CFLAGS) $^ -o $@ #-g -fsanitize=address
+#--------------------------------------------------#
 
-#-------------------------------------------------#
+.PHONY: all clean fclean re
 
-#==============CLEAN_UP======================#
+#=============|_CLEAN_UP_|=======================#
 clean:
 	@$(RM) $(EXE_OBJ)
 	@$(MAKE) clean -C $(LIB_DIR)
@@ -64,8 +74,7 @@ fclean: clean
 	@$(RM) $(EXECUT) $(NAME)
 	@$(MAKE) fclean -C $(LIB_DIR)
 	@echo "push_swap deleted successfuly✅"
-#------------------------------------------#
+#------------------------------------------------#
 
 re: fclean all
-
-.PHONY: all clean fclean re
+#--------------#

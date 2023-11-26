@@ -6,15 +6,16 @@
 #    By: avolcy <avolcy@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 21:16:09 by avolcy            #+#    #+#              #
-#    Updated: 2023/11/07 17:56:26 by avolcy           ###   ########.fr        #
+#    Updated: 2023/11/26 20:13:36 by avolcy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #variable que contiene el nombre de la biblio estatica
 NAME = libft.a
-CC = cc #var. con opcion de compilacion
+CC = cc 
 RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror -g#opciones de compilacion adicionales
+TMP = libft.h.gch 
+CFLAGS = -Wall -Wextra -Werror #-gopciones de compilacion adicionales
 HEADER = libft.h
 BUILT_LIB = ar rcs
 #variable que contiene la lista de archivos fuente que se deben compilar
@@ -59,7 +60,7 @@ bonus : .bonus
 .PHONY : clean fclean re all
 
 clean :
-	@$(RM) $(OBJ) $(OBJ_B)
+	@$(RM) $(OBJ) $(OBJ_B) $(TMP)
 
 fclean : clean
 	@$(RM) $(NAME) .bonus
